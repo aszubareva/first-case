@@ -1,5 +1,5 @@
 # Case-study #1
-# Developers:  
+# Developers:  Ufilin A.
 #
 import turtle as t #после написания процедуры черепаха смотрит вправо!!!
 import math
