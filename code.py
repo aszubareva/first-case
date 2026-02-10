@@ -1,12 +1,71 @@
 # Case-study #1
-# Developers:  Ufilin A.
+# Developers:  Ufilin A., Zubareva A.
 #
 import turtle as t #после написания процедуры черепаха смотрит вправо!!!
 import math
 
 
-def trapezoid ():
-    pass
+def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
+    '''
+    Function, drawing isosceles_trapezoid
+    :param x: lower left corner coordinate x
+    :param y: lower left corner coordinate y
+    :param height: height of trapezoid
+    :param base1: lower base length
+    :param base2: upper base length
+    :param color: color of trapezoid
+    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the trapezoid
+    :return: None
+    '''
+    t.up()
+    t.goto(x, y)
+    # lower left corner
+    p1 = t.pos()
+    t.left(rotation)
+    t.forward(base1)
+    # lower right corner
+    p2 = t.pos()
+    indent = (base1 - base2) / 2
+    t.backward(indent)
+    t.left(90)
+    t.forward(height)
+    # upper right corner
+    p3 = t.pos()
+    t.left(90)
+    t.forward(base2)
+    # upper left corner
+    p4 = t.pos()
+    t.down()
+    t.begin_fill()
+    t.color("black", color)
+    t.goto(p1)
+    t.goto(p2)
+    t.goto(p3)
+    t.goto(p4)
+    t.end_fill()
+    t.setheading(0)
+
+def equilateral_triangle(x, y, side, color, rotation):
+    '''
+    Function, drawing equilateral_triangle
+    :param x: lower left corner coordinate x
+    :param y: lower left corner coordinate y
+    :param side: side of triangle
+    :param color: color of triangle
+    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the triangle
+    :return: None
+    '''
+    t.up()
+    t.goto(x, y)
+    t.down()
+    t.left(rotation)
+    t.color("black", color)
+    t.begin_fill()
+    for _ in range (3):
+        t.forward(side)
+        t.left(120)
+    t.end_fill()
+    t.setheading(0)
 
 def rectangle(x, y, sidea, sideb, colour_edge = "black", colour_fill = "white", rotation = 0):
     # если фигура не повернута, то side a - нижняя и верхняя сторона, а side b - левая и правая.
