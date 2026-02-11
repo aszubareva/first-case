@@ -1,5 +1,5 @@
 # Case-study #1
-# Developers:  Ufilin A., Zubareva A.
+# Developers:  Ufilin A., Zubareva A., Berdyshev A.,
 #
 import turtle as t #после написания процедуры черепаха смотрит вправо!!!
 import math
