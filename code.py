@@ -149,6 +149,30 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
+def crown (x, y, s, m = 'yellow', g = 'red'):
+    '''
+    Function, drawing crown.
+    :param x: lower left point coordinate x
+    :param y: lower left point coordinate y
+    :param k: size of crown
+    :return: None
+    '''
+    right_triangle(-100+x, 0+y, 50*s, 100*s, m)
+    t.left(90)
+    right_triangle(0+x, -50+y, 50*s, 100*s, m)
+    right_triangle(100+x, -50+y, 100, 50, m)
+    t.left(180)
+    right_triangle(200+x, 0+y, 100*s, 50*s, m)
+    rectangle(0+x, -50+y, 100*s, 50*s, 'black', m)
+    t.left(90)
+    right_triangle(200+x, 0+y, 65*s, 100*s, m)
+    right_triangle(-100+x, 0+y, 100*s, 65*s, m)
+    t.right(135)
+    right_triangle(50+x, 50+y, 70*s, 70*s, m)
+    rhomb(-75+x, 0+y, 32*s, 75, 'black', g, 52)
+    rhomb(175+x, 0+y, 32*s, 75, 'black', g, 52)
+    rhomb(50+x, 0+y, 30*s, 75, 'black', g, 52)
+
 
 def main():
     '''
@@ -156,6 +180,8 @@ def main():
     :return: None
     '''
     t.tracer(0)
+    t.right(90)
+    crown(-600, 300, 1)
     t.done()
 
 
