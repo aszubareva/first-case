@@ -116,24 +116,6 @@ def rhomb(x, y, side, angle, color = "white", rotation = 0):
     t.setheading(0)
     t.color("black")
 
-def circle (x, y, r, color):
-    '''
-    Function, drawing circle.
-    :param x: centre point coordinate x
-    :param y: centre point coordinate y
-    :param r: radius of circle
-    :param color: color of circle
-    :return: None
-    '''
-    t.up()
-    t.setposition(x, y)
-    t.down()
-    t.color('black', color)
-    t.begin_fill()
-    t.circle(r)
-    t.end_fill()
-    t.seth(0)
-
 
 def equilateral_triangle(x, y, side, color, rotation):
     '''
@@ -259,6 +241,7 @@ def square(x, y, s=1):
     :param s: scale
     :return: None
     '''
+    h = 100*s*2**0.5 # hypotenuse of the biggest triangle in the square
     # orange left center side triangle
     right_triangle(x, y, 100*s, 100*s, "orange", rotation=135)
     # pink upper side triangle
@@ -266,15 +249,15 @@ def square(x, y, s=1):
     # rectangle
     rectangle(x, y, 50*s, 50*s, "orange", rotation=-45)
     # yellow upper right triangle (between rectangle and upper side triangle)
-    right_triangle(x + 100*s*0.5/2**0.5, y + 100*s*0.5/2**0.5, 50 * s, 50 * s, "yellow", rotation=-45)
+    right_triangle(x + h/4, y + h/4, 50 * s, 50 * s, "yellow", rotation=-45)
     # red lower right corner triangle
-    right_triangle(x + 100*s/2**0.5, y - 100*s/2**0.5, (100 * s)/2**0.5, (100 * s)/2**0.5, "red", rotation=90)
+    right_triangle(x + h/2, y - h/2, h/2, h/2, "red", rotation=90)
     # pink center triangle (between rectangle and orange left side triangle)
     right_triangle(x, y, 50 * s, 50 * s, "pink", rotation=-135)
     # green bottom side triangle 1
-    right_triangle(x, y - 100*s/2**0.5, 50 * s, 50 * s, "green", rotation=45)
+    right_triangle(x, y - h/2, 50 * s, 50 * s, "green", rotation=45)
     # green bottom side triangle 2
-    right_triangle(x - 100*s*0.5/2**0.5, y - 100*s*0.5/2**0.5, 50 * s, 50 * s, "green", rotation=-135)
+    right_triangle(x - h/4, y - h/4, 50 * s, 50 * s, "green", rotation=-135)
 
 def sword(x, y, s):
     '''
@@ -287,6 +270,32 @@ def sword(x, y, s):
     rectangle(0 + x, 0 + y, 30, 60, 'black', 'gray', 90)
     rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'black', 'black', 45)
     right_triangle(15 + x, 90 + y)
+
+def fish(x, y, s=1):
+    '''
+    Function, drawing square.
+    :param x: coordinate x of figure's rightest point
+    :param y: coordinate y of figure's rightest point
+    :param s: scale
+    :return: None
+    '''
+    h = 100*s * 2**0.5 # hypotenuse of triangle (fish's head)
+    # fish head
+    right_triangle(0 + x, 0 + y, 100*s, 100*s, 'blue', 135)
+    r = (100-h/2) #radius of circle
+    circle(x - r*2**0.5, y-r, r, "white")
+    # fish lower fin
+    right_triangle(x - h/2, y - 150*s, 150*s, 150*s, 'black', 90)
+    # fish upper fin
+    right_triangle(x - h/2, y + 150*s, 150*s, 150*s, 'black', 180)
+    # fish body
+    rectangle(x - h/2, y, h/2*s, h/2*s, 'yellow', 135)
+    # fish tail
+    right_triangle(x - h / 2 - 100*s, y, 100 * s, 100 * s, 'black', 135)
+    right_triangle(x - h - 100*s, y - h/2, h/2 * s, h/2 * s, 'green', 90)
+    right_triangle(x - h - 100*s, y + h/2, h/2 * s, h/2 * s, 'green', 180)
+
+
 
 
 
@@ -301,6 +310,7 @@ def main():
     crown(-600, 300)
     rabbit(-550, 50)
     square(-200, 250, 1.5)
+    fish(0, -50, 1)
     t.update()
     t.done()
 
