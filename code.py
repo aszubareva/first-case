@@ -5,27 +5,24 @@ import turtle as t #после написания процедуры череп�
 import math
 
 
-def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
-    '''
-    Function, drawing isosceles_trapezoid
-    :param x: lower left corner coordinate x
-    :param y: lower left corner coordinate y
-    :param height: height of trapezoid
-    :param base1: lower base length
-    :param base2: upper base length
-    :param color: color of trapezoid
-    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the trapezoid
-    :return: None
-    '''
-    t.up()
-    t.goto(x, y)
-    # lower left corner
-    p1 = t.pos()
-    t.left(rotation)# Case-study #1
-# Developers:  Ufilin A., Zubareva A., Berdyshev A.,
-#
-import turtle as t #после написания процедуры черепаха смотрит вправо!!!
-import math
+# def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
+#     '''
+#     Function, drawing isosceles_trapezoid
+#     :param x: lower left corner coordinate x
+#     :param y: lower left corner coordinate y
+#     :param height: height of trapezoid
+#     :param base1: lower base length
+#     :param base2: upper base length
+#     :param color: color of trapezoid
+#     :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the trapezoid
+#     :return: None
+#     '''
+#     t.up()
+#     t.goto(x, y)
+#     # lower left corner
+#     p1 = t.pos()
+#     t.left(rotation)# Case-study #1
+
 
 
 def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
@@ -68,6 +65,76 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     t.end_fill()
     t.setheading(0)
 
+def rectangle(x, y, sidea, sideb, color = "white", rotation = 0):
+    '''
+    Function, drawing rectangle
+    :param x: lower left corner coordinate x
+    :param y: lower left corner coordinate y
+    :param sidea: lower and upper side of rectangle (in case rotation equals to 0)
+    :param sideb: left and right side of rectangle (in case rotation equals to 0)
+    :param color: color of rectangle
+    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the rectangle
+    :return: None
+    '''
+    t.up()
+    t.goto(x, y)
+    t.down()
+    t.left(rotation)
+    t.fillcolor(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(sidea)
+        t.left(90)
+        t.forward(sideb)
+        t.left(90)
+    t.end_fill()
+    t.setheading(0)
+    t.color("black")
+
+def rhomb(x, y, side, angle, color = "white", rotation = 0):
+    '''
+    Function, drawing rhomb
+    :param x: lower left corner coordinate x
+    :param y: lower left corner coordinate y
+    :param side: side of rhomb
+    :param color: color of rhomb
+    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the rhomb
+    :return: None
+    '''
+    t.up()
+    t.goto(x, y)
+    t.down()
+    t.left(rotation)
+    t.fillcolor(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(side)
+        t.left(angle)
+        t.forward(side)
+        t.left(180 - angle)
+    t.end_fill()
+    t.setheading(0)
+    t.color("black")
+
+def circle (x, y, r, color):
+    '''
+    Function, drawing circle.
+    :param x: centre point coordinate x
+    :param y: centre point coordinate y
+    :param r: radius of circle
+    :param color: color of circle
+    :return: None
+    '''
+    t.up()
+    t.setposition(x, y)
+    t.down()
+    t.color('black', color)
+    t.begin_fill()
+    t.circle(r)
+    t.end_fill()
+    t.seth(0)
+
+
 def equilateral_triangle(x, y, side, color, rotation):
     '''
     Function, drawing equilateral_triangle
@@ -89,44 +156,6 @@ def equilateral_triangle(x, y, side, color, rotation):
         t.left(120)
     t.end_fill()
     t.setheading(0)
-
-def rectangle(x, y, sidea, sideb, colour_edge = "black", colour_fill = "white", rotation = 0):
-    # если фигура не повернута, то side a - нижняя и верхняя сторона, а side b - левая и правая.
-    # rotation - угол поворота фигуры на rotation градусов, угол между Ох и нижней стороной прямоугольника.
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.left(rotation)
-    t.color(colour_edge)
-    t.fillcolor(colour_fill)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(sidea)
-        t.left(90)
-        t.forward(sideb)
-        t.left(90)
-    t.end_fill()
-    t.setheading(0)
-    t.color("black")
-
-def rhomb(x, y, side, angle, colour_edge = "black", colour_fill = "white", rotation = 0):
-    # rotation - угол поворота фигуры на rotation градусов, угол между Ох и нижней стороной ромба.
-    # angle - меньший из внутренних углов ромба (т.е. 0 <= angle <= 90). Если ромб не повернут, то это угол между нижней и левой стороной ромба
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.left(rotation)
-    t.color(colour_edge)
-    t.fillcolor(colour_fill)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(side)
-        t.left(angle)
-        t.forward(side)
-        t.left(180 - angle)
-    t.end_fill()
-    t.setheading(0)
-    t.color("black")
 
 def right_triangle (x, y, a, b, color):
     '''
@@ -186,154 +215,15 @@ def crown (x, y, s, m = 'yellow', g = 'red'):
     right_triangle(100+x, -50+y, 100, 50, m)
     t.left(180)
     right_triangle(200+x, 0+y, 100*s, 50*s, m)
-    rectangle(0+x, -50+y, 100*s, 50*s, 'black', m)
+    rectangle(0+x, -50+y, 100*s, 50*s, m)
     t.left(90)
     right_triangle(200+x, 0+y, 65*s, 100*s, m)
     right_triangle(-100+x, 0+y, 100*s, 65*s, m)
     t.right(135)
     right_triangle(50+x, 50+y, 70*s, 70*s, m)
-    rhomb(-75+x, 0+y, 32*s, 75, 'black', g, 52)
-    rhomb(175+x, 0+y, 32*s, 75, 'black', g, 52)
-    rhomb(50+x, 0+y, 30*s, 75, 'black', g, 52)
-
-
-def main():
-    '''
-    Main function.
-    :return: None
-    '''
-    t.tracer(0)
-    t.right(90)
-    crown(-600, 300, 1)
-    t.done()
-
-def equilateral_triangle(x, y, side, color, rotation):
-    '''
-    Function, drawing equilateral_triangle
-    :param x: lower left corner coordinate x
-    :param y: lower left corner coordinate y
-    :param side: side of triangle
-    :param color: color of triangle
-    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the triangle
-    :return: None
-    '''
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.left(rotation)
-    t.color("black", color)
-    t.begin_fill()
-    for _ in range (3):
-        t.forward(side)
-        t.left(120)
-    t.end_fill()
-    t.setheading(0)
-
-def rectangle(x, y, sidea, sideb, colour_edge = "black", colour_fill = "white", rotation = 0):
-    # если фигура не повернута, то side a - нижняя и верхняя сторона, а side b - левая и правая.
-    # rotation - угол поворота фигуры на rotation градусов, угол между Ох и нижней стороной прямоугольника.
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.left(rotation)
-    t.color(colour_edge)
-    t.fillcolor(colour_fill)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(sidea)
-        t.left(90)
-        t.forward(sideb)
-        t.left(90)
-    t.end_fill()
-    t.setheading(0)
-    t.color("black")
-
-def rhomb(x, y, side, angle, colour_edge = "black", colour_fill = "white", rotation = 0):
-    # rotation - угол поворота фигуры на rotation градусов, угол между Ох и нижней стороной ромба.
-    # angle - меньший из внутренних углов ромба (т.е. 0 <= angle <= 90). Если ромб не повернут, то это угол между нижней и левой стороной ромба
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.left(rotation)
-    t.color(colour_edge)
-    t.fillcolor(colour_fill)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(side)
-        t.left(angle)
-        t.forward(side)
-        t.left(180 - angle)
-    t.end_fill()
-    t.setheading(0)
-    t.color("black")
-
-def right_triangle (x, y, a, b, color):
-    '''
-    Function, drawing right_triangle.
-    :param x: point between legs coordinate x
-    :param y: point between legs coordinate y
-    :param a: first leg lenght
-    :param b: second leg lenght
-    :param color: color of triangle
-    :return: None
-    '''
-    t.up()
-    t.setposition(x, y)
-    t.down()
-    t.color('black', color)
-    t.begin_fill()
-    t.forward(a)
-    pos_a = t.pos()
-    t.right(180)
-    t.forward(a)
-    t.right(90)
-    t.forward(b)
-    t.goto(pos_a)
-    t.right(90)
-    t.end_fill()
-    t.seth(0)
-
-def circle (x, y, r, color):
-    '''
-    Function, drawing circle.
-    :param x: centre point coordinate x
-    :param y: centre point coordinate y
-    :param r: radius of circle
-    :param color: color of circle
-    :return: None
-    '''
-    t.up()
-    t.setposition(x, y)
-    t.down()
-    t.color('black', color)
-    t.begin_fill()
-    t.circle(r)
-    t.end_fill()
-    t.seth(0)
-
-def crown (x, y, s, m = 'yellow', g = 'red'):
-    '''
-    Function, drawing crown.
-    :param x: lower left point coordinate x
-    :param y: lower left point coordinate y
-    :param k: size of crown
-    :return: None
-    '''
-    right_triangle(-100+x, 0+y, 50*s, 100*s, m)
-    t.left(90)
-    right_triangle(0+x, -50+y, 50*s, 100*s, m)
-    right_triangle(100+x, -50+y, 100, 50, m)
-    t.left(180)
-    right_triangle(200+x, 0+y, 100*s, 50*s, m)
-    rectangle(0+x, -50+y, 100*s, 50*s, 'black', m)
-    t.left(90)
-    right_triangle(200+x, 0+y, 65*s, 100*s, m)
-    right_triangle(-100+x, 0+y, 100*s, 65*s, m)
-    t.right(135)
-    right_triangle(50+x, 50+y, 70*s, 70*s, m)
-    rhomb(-75+x, 0+y, 32*s, 75, 'black', g, 52)
-    rhomb(175+x, 0+y, 32*s, 75, 'black', g, 52)
-    rhomb(50+x, 0+y, 30*s, 75, 'black', g, 52)
+    rhomb(-75+x, 0+y, 32*s, 75, g, 52)
+    rhomb(175+x, 0+y, 32*s, 75, g, 52)
+    rhomb(50+x, 0+y, 30*s, 75, g, 52)
 
 def rabbit(x, y):
     '''
