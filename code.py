@@ -157,7 +157,7 @@ def equilateral_triangle(x, y, side, color, rotation):
     t.end_fill()
     t.setheading(0)
 
-def right_triangle (x, y, a, b, color):
+def right_triangle (x, y, a, b, color, rotation = 0):
     '''
     Function, drawing right_triangle.
     :param x: point between legs coordinate x
@@ -165,10 +165,12 @@ def right_triangle (x, y, a, b, color):
     :param a: first leg lenght
     :param b: second leg lenght
     :param color: color of triangle
+    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the triangle
     :return: None
     '''
     t.up()
     t.setposition(x, y)
+    t.left(rotation)
     t.down()
     t.color('black', color)
     t.begin_fill()
@@ -201,29 +203,30 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
-def crown (x, y, s, m = 'yellow', g = 'red'):
+def crown (x, y, m = 'yellow', g = 'red'):
     '''
     Function, drawing crown.
     :param x: lower left point coordinate x
     :param y: lower left point coordinate y
-    :param k: size of crown
+    :param m: color of metall of the crown
+    :param g: golor of gems in the crown
     :return: None
     '''
-    right_triangle(-100+x, 0+y, 50*s, 100*s, m)
+    right_triangle(-100+x, 0+y, 50, 100, m)
     t.left(90)
-    right_triangle(0+x, -50+y, 50*s, 100*s, m)
+    right_triangle(0+x, -50+y, 50, 100, m)
     right_triangle(100+x, -50+y, 100, 50, m)
     t.left(180)
-    right_triangle(200+x, 0+y, 100*s, 50*s, m)
-    rectangle(0+x, -50+y, 100*s, 50*s, m)
+    right_triangle(200+x, 0+y, 100, 50, m)
+    rectangle(0+x, -50+y, 100, 50, m)
     t.left(90)
-    right_triangle(200+x, 0+y, 65*s, 100*s, m)
-    right_triangle(-100+x, 0+y, 100*s, 65*s, m)
+    right_triangle(200+x, 0+y, 65, 100, m)
+    right_triangle(-100+x, 0+y, 100, 65, m)
     t.right(135)
-    right_triangle(50+x, 50+y, 70*s, 70*s, m)
-    rhomb(-75+x, 0+y, 32*s, 75, g, 52)
-    rhomb(175+x, 0+y, 32*s, 75, g, 52)
-    rhomb(50+x, 0+y, 30*s, 75, g, 52)
+    right_triangle(50+x, 50+y, 70, 70, m)
+    rhomb(-75+x, 0+y, 32, 75, g, 52)
+    rhomb(175+x, 0+y, 32, 75, g, 52)
+    rhomb(50+x, 0+y, 30, 75, g, 52)
 
 def rabbit(x, y):
     '''
@@ -249,6 +252,19 @@ def rabbit(x, y):
     # rabbit's right arm
     circle(x + 55, y - 80, 20, "orange")
 
+def sword(x, y, s):
+    '''
+    Function, drawing sword.
+    :param x: lower point coordinate x
+    :param y: lower point coordinate y
+    :param k: size of sword
+    :return: None
+    '''
+    rectangle(0 + x, 0 + y, 30, 60, 'black', 'gray', 90)
+    rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'black', 'black', 45)
+    right_triangle(15 + x, 90 + y)
+
+
 
 def main():
     '''
@@ -258,7 +274,7 @@ def main():
     t.tracer(0)
     t.hideturtle()
     t.right(90)
-    crown(-600, 300, 1)
+    crown(-600, 300)
     rabbit(-550, 50)
     t.update()
     t.done()
