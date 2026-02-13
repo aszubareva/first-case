@@ -233,31 +233,30 @@ def rabbit(x, y):
     # rabbit's right arm
     circle(x + 55, y - 80, 20, "orange")
 
-def square(x, y, s=1):
+def square(x, y):
     '''
     Function, drawing square.
     :param x: coordinate x of right upper point
     :param y: coordinate y of right upper point
-    :param s: scale
     :return: None
     '''
-    h = 100*s*2**0.5 # hypotenuse of the biggest triangle in the square
+    h = 150*2**0.5 # hypotenuse of the biggest triangle in the square
     # orange left center side triangle
-    right_triangle(x, y, 100*s, 100*s, "orange", rotation=135)
+    right_triangle(x, y, 150, 150, "orange", rotation=135)
     # pink upper side triangle
-    right_triangle(x, y, 100*s, 100*s, "pink", rotation=45)
+    right_triangle(x, y, 150, 150, "pink", rotation=45)
     # rectangle
-    rectangle(x, y, 50*s, 50*s, "orange", rotation=-45)
+    rectangle(x, y, 75, 75, "orange", rotation=-45)
     # yellow upper right triangle (between rectangle and upper side triangle)
-    right_triangle(x + h/4, y + h/4, 50 * s, 50 * s, "yellow", rotation=-45)
+    right_triangle(x + h/4, y + h/4, 75, 75, "yellow", rotation=-45)
     # red lower right corner triangle
     right_triangle(x + h/2, y - h/2, h/2, h/2, "red", rotation=90)
     # pink center triangle (between rectangle and orange left side triangle)
-    right_triangle(x, y, 50 * s, 50 * s, "pink", rotation=-135)
+    right_triangle(x, y, 75, 75, "pink", rotation=-135)
     # green bottom side triangle 1
-    right_triangle(x, y - h/2, 50 * s, 50 * s, "green", rotation=45)
+    right_triangle(x, y - h/2, 75, 75, "green", rotation=45)
     # green bottom side triangle 2
-    right_triangle(x - h/4, y - h/4, 50 * s, 50 * s, "green", rotation=-135)
+    right_triangle(x - h/4, y - h/4, 75, 75, "green", rotation=-135)
 
 def sword(x, y, s):
     '''
@@ -271,29 +270,28 @@ def sword(x, y, s):
     rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'black', 'black', 45)
     right_triangle(15 + x, 90 + y)
 
-def fish(x, y, s=1):
+def fish(x, y):
     '''
     Function, drawing square.
     :param x: coordinate x of figure's rightest point
     :param y: coordinate y of figure's rightest point
-    :param s: scale
     :return: None
     '''
-    h = 100*s * 2**0.5 # hypotenuse of triangle (fish's head)
+    h = 100 * 2**0.5 # hypotenuse of triangle (fish's head)
     # fish head
-    right_triangle(0 + x, 0 + y, 100*s, 100*s, 'blue', 135)
+    right_triangle(0 + x, 0 + y, 100, 100, 'blue', 135)
     r = (100-h/2) #radius of circle
     circle(x - r*2**0.5, y-r, r, "white")
     # fish lower fin
-    right_triangle(x - h/2, y - 150*s, 150*s, 150*s, 'black', 90)
+    right_triangle(x - h/2, y - 150, 150, 150, 'black', 90)
     # fish upper fin
-    right_triangle(x - h/2, y + 150*s, 150*s, 150*s, 'black', 180)
+    right_triangle(x - h/2, y + 150, 150, 150, 'black', 180)
     # fish body
-    rectangle(x - h/2, y, h/2*s, h/2*s, 'yellow', 135)
+    rectangle(x - h/2, y, h/2, h/2, 'yellow', 135)
     # fish tail
-    right_triangle(x - h / 2 - 100*s, y, 100 * s, 100 * s, 'black', 135)
-    right_triangle(x - h - 100*s, y - h/2, h/2 * s, h/2 * s, 'green', 90)
-    right_triangle(x - h - 100*s, y + h/2, h/2 * s, h/2 * s, 'green', 180)
+    right_triangle(x - h / 2 - 100, y, 100, 100, 'black', 135)
+    right_triangle(x - h - 100, y - h/2, h/2, h/2, 'green', 90)
+    right_triangle(x - h - 100, y + h/2, h/2, h/2, 'green', 180)
 
 
 
@@ -309,8 +307,8 @@ def main():
     t.right(90)
     crown(-600, 300)
     rabbit(-550, 50)
-    square(-200, 250, 1.5)
-    fish(0, -50, 1)
+    square(-200, 250)
+    fish(0, -50)
     t.update()
     t.done()
 
