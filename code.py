@@ -203,7 +203,7 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
-def crown (x, y, s, m = 'yellow', g = 'red'):
+def crown (x, y, m = 'yellow', g = 'red'):
     '''
     Function, drawing crown.
     :param x: lower left point coordinate x
@@ -211,21 +211,21 @@ def crown (x, y, s, m = 'yellow', g = 'red'):
     :param k: size of crown
     :return: None
     '''
-    right_triangle(-100+x, 0+y, 50*s, 100*s, m)
+    right_triangle(-100+x, 0+y, 50, 100, m)
     t.left(90)
-    right_triangle(0+x, -50+y, 50*s, 100*s, m)
+    right_triangle(0+x, -50+y, 50, 100, m)
     right_triangle(100+x, -50+y, 100, 50, m)
     t.left(180)
-    right_triangle(200+x, 0+y, 100*s, 50*s, m)
-    rectangle(0+x, -50+y, 100*s, 50*s, m)
+    right_triangle(200+x, 0+y, 100, 50, m)
+    rectangle(0+x, -50+y, 100, 50, m)
     t.left(90)
-    right_triangle(200+x, 0+y, 65*s, 100*s, m)
-    right_triangle(-100+x, 0+y, 100*s, 65*s, m)
+    right_triangle(200+x, 0+y, 65, 100, m)
+    right_triangle(-100+x, 0+y, 100, 65, m)
     t.right(135)
-    right_triangle(50+x, 50+y, 70*s, 70*s, m)
-    rhomb(-75+x, 0+y, 32*s, 75, g, 52)
-    rhomb(175+x, 0+y, 32*s, 75, g, 52)
-    rhomb(50+x, 0+y, 30*s, 75, g, 52)
+    right_triangle(50+x, 50+y, 70, 70, m)
+    rhomb(-75+x, 0+y, 32, 75, g, 52)
+    rhomb(175+x, 0+y, 32, 75, g, 52)
+    rhomb(50+x, 0+y, 30, 75, g, 52)
 
 def rabbit(x, y):
     '''
@@ -276,6 +276,18 @@ def square(x, y, s=1):
     # green bottom side triangle 2
     right_triangle(x - 100*s*0.5/2**0.5, y - 100*s*0.5/2**0.5, 50 * s, 50 * s, "green", rotation=-135)
 
+def sword(x, y, s):
+    '''
+    Function, drawing sword.
+    :param x: lower point coordinate x
+    :param y: lower point coordinate y
+    :param k: size of sword
+    :return: None
+    '''
+    rectangle(0 + x, 0 + y, 30, 60, 'black', 'gray', 90)
+    rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'black', 'black', 45)
+    right_triangle(15 + x, 90 + y)
+
 
 
 def main():
@@ -286,7 +298,7 @@ def main():
     t.tracer(0)
     t.hideturtle()
     t.right(90)
-    crown(-600, 300, 1)
+    crown(-600, 300)
     rabbit(-550, 50)
     square(-200, 250, 1.5)
     t.update()
