@@ -157,7 +157,7 @@ def equilateral_triangle(x, y, side, color, rotation):
     t.end_fill()
     t.setheading(0)
 
-def right_triangle (x, y, a, b, color):
+def right_triangle (x, y, a, b, color, rotation = 0):
     '''
     Function, drawing right_triangle.
     :param x: point between legs coordinate x
@@ -165,6 +165,7 @@ def right_triangle (x, y, a, b, color):
     :param a: first leg lenght
     :param b: second leg lenght
     :param color: color of triangle
+    :param rotation: rotation of triangle, angle between Ox and the lowest side in case rotation equals to 0
     :return: None
     '''
     t.up()
@@ -172,6 +173,7 @@ def right_triangle (x, y, a, b, color):
     t.down()
     t.color('black', color)
     t.begin_fill()
+    t.left(rotation)
     t.forward(a)
     pos_a = t.pos()
     t.right(180)
@@ -249,6 +251,31 @@ def rabbit(x, y):
     # rabbit's right arm
     circle(x + 55, y - 80, 20, "orange")
 
+def square(x, y, s=1):
+    '''
+    Function, drawing square.
+    :param x: coordinate x of right upper point
+    :param y: coordinate y of right upper point
+    :return: None
+    '''
+    # orange left center side triangle
+    right_triangle(x, y, 100*s, 100*s, "orange", rotation=135)
+    # pink upper side triangle
+    right_triangle(x, y, 100*s, 100*s, "pink", rotation=45)
+    # rectangle
+    rectangle(x, y, 50*s, 50*s, "orange", rotation=-45)
+    # yellow upper right triangle (between rectangle and upper side triangle)
+    right_triangle(x + 100*s*0.5/2**0.5, y + 100*s*0.5/2**0.5, 50 * s, 50 * s, "yellow", rotation=-45)
+    # red lower right corner triangle
+    right_triangle(x + 100*s/2**0.5, y - 100*s/2**0.5, (100 * s)/2**0.5, (100 * s)/2**0.5, "red", rotation=90)
+    # pink center triangle (between rectangle and orange left side triangle)
+    right_triangle(x, y, 50 * s, 50 * s, "pink", rotation=-135)
+    # green bottom side triangle 1
+    right_triangle(x, y - 100*s/2**0.5, 50 * s, 50 * s, "green", rotation=45)
+    # green bottom side triangle 2
+    right_triangle(x - 100*s*0.5/2**0.5, y - 100*s*0.5/2**0.5, 50 * s, 50 * s, "green", rotation=-135)
+
+
 
 def main():
     '''
@@ -260,6 +287,7 @@ def main():
     t.right(90)
     crown(-600, 300, 1)
     rabbit(-550, 50)
+    square(-200, 250, 1.5)
     t.update()
     t.done()
 
