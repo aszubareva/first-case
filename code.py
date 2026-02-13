@@ -256,6 +256,7 @@ def square(x, y, s=1):
     Function, drawing square.
     :param x: coordinate x of right upper point
     :param y: coordinate y of right upper point
+    :param s: scale
     :return: None
     '''
     # orange left center side triangle
