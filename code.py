@@ -147,15 +147,15 @@ def right_triangle (x, y, a, b, color, rotation = 0):
     :param a: first leg lenght
     :param b: second leg lenght
     :param color: color of triangle
-    :param rotation: rotation of triangle, angle between Ox and the lowest side in case rotation equals to 0
+    :param rotation: the angle of rotation of the figure by degrees
     :return: None
     '''
     t.up()
     t.setposition(x, y)
+    t.left(rotation)
     t.down()
     t.color('black', color)
     t.begin_fill()
-    t.left(rotation)
     t.forward(a)
     pos_a = t.pos()
     t.right(180)
@@ -190,24 +190,36 @@ def crown (x, y, m = 'yellow', g = 'red'):
     Function, drawing crown.
     :param x: lower left point coordinate x
     :param y: lower left point coordinate y
-    :param k: size of crown
+    :param m: color of metall of the crown
+    :param g: golor of gems in the crown
     :return: None
     '''
     right_triangle(-100+x, 0+y, 50, 100, m)
+    # left upper triangle of crown
     t.left(90)
     right_triangle(0+x, -50+y, 50, 100, m)
+    # left lower triangle of crown
     right_triangle(100+x, -50+y, 100, 50, m)
+    # right lower triangle of crown
     t.left(180)
     right_triangle(200+x, 0+y, 100, 50, m)
+    # right upper triangle of crown
     rectangle(0+x, -50+y, 100, 50, m)
+    # rectangle between triangles
     t.left(90)
     right_triangle(200+x, 0+y, 65, 100, m)
+    # right crown clove
     right_triangle(-100+x, 0+y, 100, 65, m)
+    # left crown clove
     t.right(135)
     right_triangle(50+x, 50+y, 70, 70, m)
+    # central crown clove
     rhomb(-75+x, 0+y, 32, 75, g, 52)
+    # left gem of crown
     rhomb(175+x, 0+y, 32, 75, g, 52)
+    # right gem of crown
     rhomb(50+x, 0+y, 30, 75, g, 52)
+    # central gem of crown
 
 def rabbit(x, y):
     '''
@@ -258,17 +270,25 @@ def square(x, y):
     # green bottom side triangle 2
     right_triangle(x - h/4, y - h/4, 75, 75, "green", rotation=-135)
 
-def sword(x, y, s):
+def sword(x, y):
     '''
     Function, drawing sword.
     :param x: lower point coordinate x
     :param y: lower point coordinate y
-    :param k: size of sword
     :return: None
     '''
-    rectangle(0 + x, 0 + y, 30, 60, 'black', 'gray', 90)
-    rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'black', 'black', 45)
-    right_triangle(15 + x, 90 + y)
+    rectangle(0 + x, 0 + y, 30, 60, 'black', 0)
+    # sword handle
+    rhomb(15 + x, (-math.sqrt(1800)) / 2 + y, 30, 90, 'gray', 45)
+    # sword pommel
+    rectangle(-25 + x, 50 + y, 80, 10, 'gray', 0)
+    # sword guard
+    rectangle(-5 + x, 60 + y, 40, 220, 'gray', 0)
+    # sword blade
+    rectangle(13 + x, 60 + y, 4, 220, 'gray', 0)
+    # sword's dale
+    right_triangle(15 + x, 300 + y, math.sqrt(800), math.sqrt(800), 'gray', 225)
+    # the tip of the sword
 
 def fish(x, y):
     '''
@@ -306,6 +326,7 @@ def main():
     t.hideturtle()
     t.right(90)
     crown(-600, 300)
+    sword(100, 90)
     rabbit(-550, 50)
     square(-200, 250)
     fish(0, -50)
