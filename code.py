@@ -4,27 +4,6 @@
 import turtle as t #после написания процедуры черепаха смотрит вправо!!!
 import math
 
-
-# def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
-#     '''
-#     Function, drawing isosceles_trapezoid
-#     :param x: lower left corner coordinate x
-#     :param y: lower left corner coordinate y
-#     :param height: height of trapezoid
-#     :param base1: lower base length
-#     :param base2: upper base length
-#     :param color: color of trapezoid
-#     :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the trapezoid
-#     :return: None
-#     '''
-#     t.up()
-#     t.goto(x, y)
-#     # lower left corner
-#     p1 = t.pos()
-#     t.left(rotation)# Case-study #1
-
-
-
 def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     '''
     Function, drawing isosceles_trapezoid
@@ -314,7 +293,33 @@ def fish(x, y):
     right_triangle(x - h - 100, y + h/2, h/2, h/2, 'green', 180)
 
 
-
+def butterfly (x,y):
+    '''
+    Function, drawing butterfly.
+    :param x: coordinate x of figure's head
+    :param y: coordinate y of figure's head
+    :return: None
+    '''
+    # body from the head
+    circle (x,y, 20, "brown")
+    circle(x+7,y-35, 18, "brown")
+    circle(x+18,y-65, 16, "brown")
+    circle(x+27,y-91, 14, "brown")
+    circle(x+40,y-112, 12, "brown")
+    # upper left wing
+    equilateral_triangle(x-135, y-80, 140, "cadet blue", 20)
+    circle(x-90,y-10, 18, "lemon chiffon")
+    circle(x-50,y-40, 14, "lemon chiffon")
+    # upper right wing
+    equilateral_triangle(x+20, y-30, 140, "cadet blue", -5)
+    circle(x+95,y+10, 18, "lemon chiffon")
+    circle(x+60,y-20, 14, "lemon chiffon")
+    # lower left wing
+    equilateral_triangle(x-90, y-105, 110, "cadet blue", -20)
+    circle(x-27,y-110, 20, "lemon chiffon")
+    # lower right wing
+    equilateral_triangle(x+31, y-32, 110, "cadet blue", -70)
+    circle(x+80,y-90, 20, "lemon chiffon")
 
 
 def main():
@@ -330,6 +335,7 @@ def main():
     rabbit(-550, 50)
     square(-200, 250)
     fish(0, -50)
+    butterfly(400, 250)
     t.update()
     t.done()
 
