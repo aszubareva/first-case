@@ -1,7 +1,6 @@
 # Case-study #1
 # Developers:  Ufilin A., Zubareva A., Berdyshev A., Chepeleva M.
-#
-import turtle as t #после написания процедуры черепаха смотрит вправо!!!
+import turtle as t
 import math
 
 def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
@@ -208,21 +207,21 @@ def rabbit(x, y):
     :return: None
     '''
     # rabbit's head
-    circle(x, y, 40, "orange")
+    circle(x, y, 40, "lavender")
     # rabbit's left ear
-    equilateral_triangle(x - 10, y + 80, 70, "orange", 90)
+    equilateral_triangle(x - 10, y + 80, 70, "lavender", 90)
     # rabbit's right ear
-    equilateral_triangle(x + 10, y + 80, 70, "orange", 30)
+    equilateral_triangle(x + 10, y + 80, 70, "lavender", 30)
     # rabbit's body
-    equilateral_triangle(x - 100, y - 175, 200, "pink", 0)
+    equilateral_triangle(x - 100, y - 175, 200, "yellow green", 0)
     # rabbit's left leg
-    isosceles_trapezoid(x - 70, y - 195, 60, 30, 20, "orange", 0)
+    isosceles_trapezoid(x - 70, y - 195, 60, 30, 20, "tan", 0)
     # rabbit's right leg
-    isosceles_trapezoid(x + 15, y - 195, 60, 30, 20, "orange", 0)
+    isosceles_trapezoid(x + 15, y - 195, 60, 30, 20, "tan", 0)
     # rabbit's left arm
-    circle(x - 55, y - 80, 20, "orange")
+    circle(x - 55, y - 80, 20, "lavender")
     # rabbit's right arm
-    circle(x + 55, y - 80, 20, "orange")
+    circle(x + 55, y - 80, 20, "lavender")
 
 def square(x, y):
     '''
