@@ -162,6 +162,27 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
+def square(x, y, a, color):
+    '''
+    Function, drawing square.
+    :param x: left top point coordinate x
+    :param y: left top point coordinate y
+    :param a: side lenght of square
+    :param color: color of square
+    :return: None
+    '''
+    t.up()
+    t.setposition(x, y)
+    t.down()
+    t.color('black', color)
+    t.begin_fill()
+
+    for _ in range(4):
+        t.forward(a)
+        t.right(90)
+    
+    t.end_fill()
+    t.seth(0)
 
 def crown (x, y, m = 'yellow', g = 'red'):
     '''
