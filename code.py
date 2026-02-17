@@ -94,7 +94,6 @@ def rhomb(x, y, side, angle, color = "white", rotation = 0):
     t.setheading(0)
     t.color("black")
 
-
 def equilateral_triangle(x, y, side, color, rotation):
     '''
     Function, drawing equilateral_triangle
@@ -291,7 +290,6 @@ def fish(x, y):
     right_triangle(x - h - 100, y - h/2, h/2, h/2, 'green', 90)
     right_triangle(x - h - 100, y + h/2, h/2, h/2, 'green', 180)
 
-
 def butterfly (x,y):
     '''
     Function, drawing butterfly.
@@ -320,7 +318,6 @@ def butterfly (x,y):
     equilateral_triangle(x+31, y-32, 110, "cadet blue", -70)
     circle(x+80,y-90, 20, "lemon chiffon")
 
-
 def main():
     '''
     Main function.
@@ -338,6 +335,4 @@ def main():
     t.update()
     t.done()
 
-
 main()
-
