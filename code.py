@@ -35,7 +35,7 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     p4 = t.pos()
     t.down()
     t.begin_fill()
-    t.color("black", color)
+    t.color('black', color)
     t.goto(p1)
     t.goto(p2)
     t.goto(p3)
@@ -43,7 +43,7 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     t.end_fill()
     t.setheading(0)
 
-def rectangle(x, y, sidea, sideb, color = "white", rotation = 0):
+def rectangle(x, y, sidea, sideb, color = 'white', rotation = 0):
     '''
     Function, drawing rectangle
     :param x: lower left corner coordinate x
@@ -67,9 +67,9 @@ def rectangle(x, y, sidea, sideb, color = "white", rotation = 0):
         t.left(90)
     t.end_fill()
     t.setheading(0)
-    t.color("black")
+    t.color('black')
 
-def rhomb(x, y, side, angle, color = "white", rotation = 0):
+def rhomb(x, y, side, angle, color = 'white', rotation = 0):
     '''
     Function, drawing rhomb
     :param x: lower left corner coordinate x
@@ -92,7 +92,7 @@ def rhomb(x, y, side, angle, color = "white", rotation = 0):
         t.left(180 - angle)
     t.end_fill()
     t.setheading(0)
-    t.color("black")
+    t.color('black')
 
 def equilateral_triangle(x, y, side, color, rotation):
     '''
@@ -108,7 +108,7 @@ def equilateral_triangle(x, y, side, color, rotation):
     t.goto(x, y)
     t.down()
     t.left(rotation)
-    t.color("black", color)
+    t.color('black', color)
     t.begin_fill()
     for _ in range (3):
         t.forward(side)
@@ -162,6 +162,7 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
+
 def crown (x, y, m = 'yellow', g = 'red'):
     '''
     Function, drawing crown.
@@ -171,31 +172,31 @@ def crown (x, y, m = 'yellow', g = 'red'):
     :param g: golor of gems in the crown
     :return: None
     '''
-    right_triangle(-100+x, 0+y, 50, 100, m)
+    right_triangle(-100 + x, 0 + y, 50, 100, m)
     # left upper triangle of crown
     t.left(90)
-    right_triangle(0+x, -50+y, 50, 100, m)
+    right_triangle(0 + x, -50 + y, 50, 100, m)
     # left lower triangle of crown
-    right_triangle(100+x, -50+y, 100, 50, m)
+    right_triangle(100 + x, -50 + y, 100, 50, m)
     # right lower triangle of crown
     t.left(180)
-    right_triangle(200+x, 0+y, 100, 50, m)
+    right_triangle(200 + x, 0 + y, 100, 50, m)
     # right upper triangle of crown
-    rectangle(0+x, -50+y, 100, 50, m)
+    rectangle(0 + x, -50 + y, 100, 50, m)
     # rectangle between triangles
     t.left(90)
-    right_triangle(200+x, 0+y, 65, 100, m)
+    right_triangle(200 + x, 0 + y, 65, 100, m)
     # right crown clove
-    right_triangle(-100+x, 0+y, 100, 65, m)
+    right_triangle(-100 + x, 0 + y, 100, 65, m)
     # left crown clove
     t.right(135)
-    right_triangle(50+x, 50+y, 70, 70, m)
+    right_triangle(50 + x, 50 + y, 70, 70, m)
     # central crown clove
-    rhomb(-75+x, 0+y, 32, 75, g, 52)
+    rhomb(-75 + x, 0 + y, 32, 75, g, 52)
     # left gem of crown
-    rhomb(175+x, 0+y, 32, 75, g, 52)
+    rhomb(175 + x, 0 + y, 32, 75, g, 52)
     # right gem of crown
-    rhomb(50+x, 0+y, 30, 75, g, 52)
+    rhomb(50 + x, 0 + y, 30, 75, g, 52)
     # central gem of crown
 
 def rabbit(x, y):
@@ -206,21 +207,21 @@ def rabbit(x, y):
     :return: None
     '''
     # rabbit's head
-    circle(x, y, 40, "lavender")
+    circle(x, y, 40, 'lavender')
     # rabbit's left ear
-    equilateral_triangle(x - 10, y + 80, 70, "lavender", 90)
+    equilateral_triangle(x - 10, y + 80, 70, 'lavender', 90)
     # rabbit's right ear
-    equilateral_triangle(x + 10, y + 80, 70, "lavender", 30)
+    equilateral_triangle(x + 10, y + 80, 70, 'lavender', 30)
     # rabbit's body
-    equilateral_triangle(x - 100, y - 175, 200, "yellow green", 0)
+    equilateral_triangle(x - 100, y - 175, 200, 'yellow green', 0)
     # rabbit's left leg
-    isosceles_trapezoid(x - 70, y - 195, 60, 30, 20, "tan", 0)
+    isosceles_trapezoid(x - 70, y - 195, 60, 30, 20, 'tan', 0)
     # rabbit's right leg
-    isosceles_trapezoid(x + 15, y - 195, 60, 30, 20, "tan", 0)
+    isosceles_trapezoid(x + 15, y - 195, 60, 30, 20, 'tan', 0)
     # rabbit's left arm
-    circle(x - 55, y - 80, 20, "lavender")
+    circle(x - 55, y - 80, 20, 'lavender')
     # rabbit's right arm
-    circle(x + 55, y - 80, 20, "lavender")
+    circle(x + 55, y - 80, 20, 'lavender')
 
 def square(x, y):
     '''
@@ -229,23 +230,23 @@ def square(x, y):
     :param y: coordinate y of right upper point
     :return: None
     '''
-    h = 150*2**0.5 # hypotenuse of the biggest triangle in the square
+    h = 150 * 2 ** 0.5 # hypotenuse of the biggest triangle in the square
     # orange left center side triangle
-    right_triangle(x, y, 150, 150, "orange", rotation=135)
+    right_triangle(x, y, 150, 150, 'orange', rotation=135)
     # pink upper side triangle
-    right_triangle(x, y, 150, 150, "pink", rotation=45)
+    right_triangle(x, y, 150, 150, 'pink', rotation=45)
     # rectangle
-    rectangle(x, y, 75, 75, "orange", rotation=-45)
+    rectangle(x, y, 75, 75, 'orange', rotation=-45)
     # yellow upper right triangle (between rectangle and upper side triangle)
-    right_triangle(x + h/4, y + h/4, 75, 75, "yellow", rotation=-45)
+    right_triangle(x + h / 4, y + h / 4, 75, 75, 'yellow', rotation=-45)
     # red lower right corner triangle
-    right_triangle(x + h/2, y - h/2, h/2, h/2, "red", rotation=90)
+    right_triangle(x + h / 2, y - h / 2, h / 2, h / 2, 'red', rotation=90)
     # pink center triangle (between rectangle and orange left side triangle)
-    right_triangle(x, y, 75, 75, "pink", rotation=-135)
+    right_triangle(x, y, 75, 75, 'pink', rotation=-135)
     # green bottom side triangle 1
-    right_triangle(x, y - h/2, 75, 75, "green", rotation=45)
+    right_triangle(x, y - h / 2, 75, 75, 'green', rotation=45)
     # green bottom side triangle 2
-    right_triangle(x - h/4, y - h/4, 75, 75, "green", rotation=-135)
+    right_triangle(x - h / 4, y - h / 4, 75, 75, 'green', rotation=-135)
 
 def sword(x, y):
     '''
@@ -274,23 +275,23 @@ def fish(x, y):
     :param y: coordinate y of figure's rightest point
     :return: None
     '''
-    h = 100 * 2**0.5 # hypotenuse of triangle (fish's head)
+    h = 100 * 2** 0.5 # hypotenuse of triangle (fish's head)
     # fish head
     right_triangle(0 + x, 0 + y, 100, 100, 'blue', 135)
-    r = (100-h/2) #radius of circle
-    circle(x - r*2**0.5, y-r, r, "white")
+    r = (100 - h / 2) #radius of circle
+    circle(x - r * 2 ** 0.5, y - r, r, 'white')
     # fish lower fin
-    right_triangle(x - h/2, y - 150, 150, 150, 'black', 90)
+    right_triangle(x - h / 2, y - 150, 150, 150, 'black', 90)
     # fish upper fin
-    right_triangle(x - h/2, y + 150, 150, 150, 'black', 180)
+    right_triangle(x - h / 2, y + 150, 150, 150, 'black', 180)
     # fish body
-    rectangle(x - h/2, y, h/2, h/2, 'yellow', 135)
+    rectangle(x - h / 2, y, h / 2, h / 2, 'yellow', 135)
     # fish tail
     right_triangle(x - h / 2 - 100, y, 100, 100, 'black', 135)
-    right_triangle(x - h - 100, y - h/2, h/2, h/2, 'green', 90)
-    right_triangle(x - h - 100, y + h/2, h/2, h/2, 'green', 180)
+    right_triangle(x - h - 100, y - h / 2, h / 2, h / 2, 'green', 90)
+    right_triangle(x - h - 100, y + h / 2, h / 2, h / 2, 'green', 180)
 
-def butterfly (x,y):
+def butterfly (x, y):
     '''
     Function, drawing butterfly.
     :param x: coordinate x of figure's head
