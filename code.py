@@ -223,7 +223,7 @@ def rabbit(x, y):
     # rabbit's right arm
     circle(x + 55, y - 80, 20, 'lavender')
 
-def square(x, y):
+def detailed_square(x, y):
     '''
     Function, drawing square.
     :param x: coordinate x of right upper point
@@ -330,7 +330,7 @@ def main():
     crown(-600, 300)
     sword(100, 90)
     rabbit(-550, 50)
-    square(-200, 250)
+    detailed_square(-200, 250)
     fish(0, -50)
     butterfly(400, 250)
     t.update()
