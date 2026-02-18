@@ -408,13 +408,23 @@ def bird(x, y):
     rhomb(x + 198, y - 100, 60, 30, 'red', -30)
 
 def swan(x, y):
+    '''
+    Function, drawing swan
+    
+    :param x: coordinate x of the top corner of the head
+    :param y: coordinate y of the top corner of the head
+    :return: None
+    '''
+    #head
     right_triangle(x, y, 60, 50, 'blue', 90)
+    #neck
     rhomb(x + 42, y - 42, 60, 45, 'blue', 90)
     square(x - 38, y - 43, 57, 'blue', 45)
     isosceles_triangle(x - 78, y - 84, 80, 40, 'blue')
-
+    #body
     square(x - 78, y - 84, 80, 'blue')
     right_triangle(x + 2, y - 164, 80, 80, 'blue')
+    #tail
     right_triangle(x + 82, y - 164, 113, 113, 'blue', 45)
 
 def main():
@@ -437,4 +447,5 @@ def main():
     t.done()
 
 
-main()
+if __name__ == '__main__':
+    main()
