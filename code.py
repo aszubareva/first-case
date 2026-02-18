@@ -172,12 +172,12 @@ def circle(x, y, r, color):
     t.seth(0)
 
 
-def square(x, y, a, color, rotation=0):
+def square(x, y, side, color, rotation=0):
     '''
     Function, drawing square.
     :param x: left top point coordinate x
     :param y: left top point coordinate y
-    :param a: side lenght of square
+    :param side: side lenght of square
     :param color: color of square
     :return: None
     '''
@@ -189,20 +189,20 @@ def square(x, y, a, color, rotation=0):
     t.begin_fill()
 
     for _ in range(4):
-        t.forward(a)
+        t.forward(side)
         t.right(90)
 
     t.end_fill()
     t.seth(0)
 
 
-def isosceles_triangle(x, y, a, h, color, rotation=0):
+def isosceles_triangle(x, y, base, height, color, rotation=0):
     '''
     Function, drawing isosceles triangle
 
     :param x: left bottom point coordinate x
     :param y: left bottom point coordinate y
-    :param a: length of base
+    :param base: length of base
     :param h: height of triangle
     :param color: color of triangle
     :param rotation: rotation angle in degrees
@@ -214,10 +214,10 @@ def isosceles_triangle(x, y, a, h, color, rotation=0):
     t.color('black', color)
     t.begin_fill()
     t.seth(rotation)
-    t.forward(a)
+    t.forward(base)
 
-    angle = math.degrees(math.atan2(h, a / 2))
-    side_length = math.sqrt((a / 2) ** 2 + h ** 2)
+    angle = math.degrees(math.atan2(height, base / 2))
+    side_length = math.sqrt((base / 2) ** 2 + height ** 2)
 
     t.left(180 - angle)
     t.forward(side_length)
