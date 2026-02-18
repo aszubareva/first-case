@@ -184,6 +184,39 @@ def square(x, y, a, color):
     t.end_fill()
     t.seth(0)
 
+def isosceles_triangle(x, y, a, h, color, rotation = 0):
+    '''
+    Function, drawing isosceles triangle
+    
+    :param x: left bottom point coordinate x
+    :param y: left bottom point coordinate y
+    :param a: length of base
+    :param h: height of triangle
+    :param color: color of triangle
+    :param rotation: rotation angle in degrees
+    :return: None
+    '''
+    t.up()
+
+    t.setposition(x, y)
+    t.down()
+
+    t.color('black', color)
+    t.begin_fill()
+
+    t.seth(rotation)
+
+    t.forward(a)
+
+    angle = math.degrees(math.atan2(h, a / 2))
+    side_length = math.sqrt((a / 2) ** 2 + h ** 2)
+
+    t.left(180 - angle)
+    t.forward(side_length)
+
+    t.end_fill
+    t.seth(0)
+
 def crown (x, y, m = 'yellow', g = 'red'):
     '''
     Function, drawing crown.
