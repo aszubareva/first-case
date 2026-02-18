@@ -162,7 +162,7 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
-def square(x, y, a, color):
+def square(x, y, a, color, rotation = 0):
     '''
     Function, drawing square.
     :param x: left top point coordinate x
@@ -173,6 +173,7 @@ def square(x, y, a, color):
     '''
     t.up()
     t.setposition(x, y)
+    t.left(rotation)
     t.down()
     t.color('black', color)
     t.begin_fill()
@@ -377,39 +378,8 @@ def butterfly (x, y):
     circle(x + 80, y - 90, 20, 'lemon chiffon')
 
 def bird(x, y):
-    """
-    Рисует птичку, где все фигуры соединены.
-    x, y - левый нижний угол птички
-    """
-    # Тело (центрировано относительно x, y)
-    body_x = x + 100
-    body_y = y + 100
-    square(body_x, body_y, 150, 'blue')
-    
-    # Голова (примыкает к телу справа сверху)
-    head_x = body_x + 100  # Сдвиг от тела
-    head_y = body_y + 50   # Поднята выше
-    square(head_x, head_y, 80, 'blue')
-    
-    # Клюв (от головы)
-    beak_x = head_x + 60   # От головы вправо
-    beak_y = head_y + 30   # На уровне середины головы
-    isosceles_triangle(beak_x, beak_y, 50, 25, 'yellow', 20)
-    
-    # Глаз (на голове)
-    eye_x = head_x + 30    # Смещение на голове
-    eye_y = head_y + 50    # Верхняя часть головы
-    square(eye_x, eye_y, 15, 'black')
-    
-    # Крыло (на теле)
-    wing_x = body_x - 30   # Левая часть тела
-    wing_y = body_y + 40   # Средняя часть тела
-    right_triangle(wing_x, wing_y, 100, 50, 'red', 20)
-    
-    # Хвост (сзади тела)
-    tail_x = body_x - 80   # За телом
-    tail_y = body_y + 60   # На уровне середины тела
-    isosceles_triangle(tail_x, tail_y, 80, 40, 'blue', -30)
+    square(x, y, 70, 'red', 45)
+    isosceles_triangle(x, y, 99, 49.5, 'orange', rotation = 270)
 
 def main():
     '''
@@ -425,7 +395,7 @@ def main():
     detailed_square(-200, 250)
     fish(0, -50)
     butterfly(400, 250)
-    bird(150, -250)
+    bird(150, 0)
     t.update()
     t.done()
 
