@@ -214,7 +214,10 @@ def isosceles_triangle(x, y, a, h, color, rotation = 0):
     t.left(180 - angle)
     t.forward(side_length)
 
-    t.end_fill
+    t.left(angle * 2)
+    t.forward(side_length)
+
+    t.end_fill()
     t.seth(0)
 
 def crown (x, y, m = 'yellow', g = 'red'):
