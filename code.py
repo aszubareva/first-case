@@ -3,6 +3,7 @@
 import turtle as t
 import math
 
+
 def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     '''
     Function, drawing isosceles_trapezoid
@@ -12,7 +13,8 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     :param base1: lower base length
     :param base2: upper base length
     :param color: color of trapezoid
-    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the trapezoid
+    :param rotation: the angle of rotation of the figure by degrees,
+    the angle between Ox and the bottom side of the trapezoid
     :return: None
     '''
     t.up()
@@ -41,9 +43,10 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     t.goto(p3)
     t.goto(p4)
     t.end_fill()
-    t.setheading(0)
+    t.seth(0)
 
-def rectangle(x, y, sidea, sideb, color = 'white', rotation = 0):
+
+def rectangle(x, y, sidea, sideb, color='white', rotation=0):
     '''
     Function, drawing rectangle
     :param x: lower left corner coordinate x
@@ -51,7 +54,8 @@ def rectangle(x, y, sidea, sideb, color = 'white', rotation = 0):
     :param sidea: lower and upper side of rectangle (in case rotation equals to 0)
     :param sideb: left and right side of rectangle (in case rotation equals to 0)
     :param color: color of rectangle
-    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the rectangle
+    :param rotation: the angle of rotation of the figure by degrees,
+    the angle between Ox and the bottom side of the rectangle
     :return: None
     '''
     t.up()
@@ -69,7 +73,8 @@ def rectangle(x, y, sidea, sideb, color = 'white', rotation = 0):
     t.setheading(0)
     t.color('black')
 
-def rhomb(x, y, side, angle, color = 'white', rotation = 0):
+
+def rhomb(x, y, side, angle, color='white', rotation=0):
     '''
     Function, drawing rhomb
     :param x: lower left corner coordinate x
@@ -94,6 +99,7 @@ def rhomb(x, y, side, angle, color = 'white', rotation = 0):
     t.setheading(0)
     t.color('black')
 
+
 def equilateral_triangle(x, y, side, color, rotation):
     '''
     Function, drawing equilateral_triangle
@@ -101,7 +107,8 @@ def equilateral_triangle(x, y, side, color, rotation):
     :param y: lower left corner coordinate y
     :param side: side of triangle
     :param color: color of triangle
-    :param rotation: the angle of rotation of the figure by degrees, the angle between Ox and the bottom side of the triangle
+    :param rotation: the angle of rotation of the figure by degrees,
+    the angle between Ox and the bottom side of the triangle
     :return: None
     '''
     t.up()
@@ -110,13 +117,14 @@ def equilateral_triangle(x, y, side, color, rotation):
     t.left(rotation)
     t.color('black', color)
     t.begin_fill()
-    for _ in range (3):
+    for _ in range(3):
         t.forward(side)
         t.left(120)
     t.end_fill()
     t.setheading(0)
 
-def right_triangle (x, y, a, b, color, rotation = 0):
+
+def right_triangle(x, y, a, b, color, rotation=0):
     '''
     Function, drawing right_triangle.
     :param x: point between legs coordinate x
@@ -144,7 +152,8 @@ def right_triangle (x, y, a, b, color, rotation = 0):
     t.end_fill()
     t.seth(0)
 
-def circle (x, y, r, color):
+
+def circle(x, y, r, color):
     '''
     Function, drawing circle.
     :param x: centre point coordinate x
@@ -162,7 +171,8 @@ def circle (x, y, r, color):
     t.end_fill()
     t.seth(0)
 
-def square(x, y, a, color, rotation = 0):
+
+def square(x, y, a, color, rotation=0):
     '''
     Function, drawing square.
     :param x: left top point coordinate x
@@ -181,14 +191,15 @@ def square(x, y, a, color, rotation = 0):
     for _ in range(4):
         t.forward(a)
         t.right(90)
-    
+
     t.end_fill()
     t.seth(0)
 
-def isosceles_triangle(x, y, a, h, color, rotation = 0):
+
+def isosceles_triangle(x, y, a, h, color, rotation=0):
     '''
     Function, drawing isosceles triangle
-    
+
     :param x: left bottom point coordinate x
     :param y: left bottom point coordinate y
     :param a: length of base
@@ -198,15 +209,11 @@ def isosceles_triangle(x, y, a, h, color, rotation = 0):
     :return: None
     '''
     t.up()
-
     t.setposition(x, y)
     t.down()
-
     t.color('black', color)
     t.begin_fill()
-
     t.seth(rotation)
-
     t.forward(a)
 
     angle = math.degrees(math.atan2(h, a / 2))
@@ -214,14 +221,13 @@ def isosceles_triangle(x, y, a, h, color, rotation = 0):
 
     t.left(180 - angle)
     t.forward(side_length)
-
     t.left(angle * 2)
     t.forward(side_length)
-
     t.end_fill()
     t.seth(0)
 
-def crown (x, y, m = 'yellow', g = 'red'):
+
+def crown(x, y, m='yellow', g='red'):
     '''
     Function, drawing crown.
     :param x: lower left point coordinate x
@@ -257,6 +263,7 @@ def crown (x, y, m = 'yellow', g = 'red'):
     rhomb(50 + x, 0 + y, 30, 75, g, 52)
     # central gem of crown
 
+
 def rabbit(x, y):
     '''
     Function, drawing rabbit.
@@ -281,6 +288,7 @@ def rabbit(x, y):
     # rabbit's right arm
     circle(x + 55, y - 80, 20, 'lavender')
 
+
 def detailed_square(x, y):
     '''
     Function, drawing square.
@@ -288,7 +296,7 @@ def detailed_square(x, y):
     :param y: coordinate y of right upper point
     :return: None
     '''
-    h = 150 * 2 ** 0.5 # hypotenuse of the biggest triangle in the square
+    h = 150 * 2 ** 0.5  # hypotenuse of the biggest triangle in the square
     # orange left center side triangle
     right_triangle(x, y, 150, 150, 'orange', rotation=135)
     # pink upper side triangle
@@ -305,6 +313,7 @@ def detailed_square(x, y):
     right_triangle(x, y - h / 2, 75, 75, 'green', rotation=45)
     # green bottom side triangle 2
     right_triangle(x - h / 4, y - h / 4, 75, 75, 'green', rotation=-135)
+
 
 def sword(x, y):
     '''
@@ -326,6 +335,7 @@ def sword(x, y):
     right_triangle(15 + x, 300 + y, math.sqrt(800), math.sqrt(800), 'gray', 225)
     # the tip of the sword
 
+
 def fish(x, y):
     '''
     Function, drawing square.
@@ -333,10 +343,10 @@ def fish(x, y):
     :param y: coordinate y of figure's rightest point
     :return: None
     '''
-    h = 100 * 2** 0.5 # hypotenuse of triangle (fish's head)
+    h = 100 * 2 ** 0.5  # hypotenuse of triangle (fish's head)
     # fish head
     right_triangle(0 + x, 0 + y, 100, 100, 'blue', 135)
-    r = (100 - h / 2) #radius of circle
+    r = (100 - h / 2)  # radius of circle
     circle(x - r * 2 ** 0.5, y - r, r, 'white')
     # fish lower fin
     right_triangle(x - h / 2, y - 150, 150, 150, 'black', 90)
@@ -349,7 +359,8 @@ def fish(x, y):
     right_triangle(x - h - 100, y - h / 2, h / 2, h / 2, 'green', 90)
     right_triangle(x - h - 100, y + h / 2, h / 2, h / 2, 'green', 180)
 
-def butterfly (x, y):
+
+def butterfly(x, y):
     '''
     Function, drawing butterfly.
     :param x: coordinate x of figure's head
@@ -377,6 +388,7 @@ def butterfly (x, y):
     equilateral_triangle(x + 31, y - 32, 110, 'cadet blue', -70)
     circle(x + 80, y - 90, 20, 'lemon chiffon')
 
+
 def bird(x, y):
     '''
     Function, drawing bird.
@@ -384,16 +396,17 @@ def bird(x, y):
     :param y: coordinate y of the left corner of the head
     :return: None
     '''
-    #head
+    # head
     square(x, y, 70, 'red', 45)
     circle(x + 50, y - 15, 10, 'black')
-    isosceles_triangle(x, y, 99, 49.5, 'orange', rotation = 270)
-    #body
+    isosceles_triangle(x, y, 99, 49.5, 'orange', rotation=270)
+    # body
     square(x + 49.5, y - 49.5, 140, 'red', 45)
     isosceles_triangle(x + 113, y - 180, 70, 30, 'orange')
-    #tail
+    # tail
     isosceles_triangle(x + 198, y - 100, 100, 50, 'yellow')
     rhomb(x + 198, y - 100, 60, 30, 'red', -30)
+
 
 def main():
     '''
@@ -412,5 +425,6 @@ def main():
     bird(150, 0)
     t.update()
     t.done()
+
 
 main()
