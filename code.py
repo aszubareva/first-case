@@ -4,7 +4,7 @@ import turtle as t
 import math
 
 
-def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
+def isosceles_trapezoid(x, y, base1, base2, height, color, rotation = 0):
     '''
     Function, drawing isosceles_trapezoid
     :param x: lower left corner coordinate x
@@ -46,7 +46,7 @@ def isosceles_trapezoid(x, y, base1, base2, height, color, rotation):
     t.seth(0)
 
 
-def rectangle(x, y, sidea, sideb, color='white', rotation=0):
+def rectangle(x, y, sidea, sideb, color='white', rotation = 0):
     '''
     Function, drawing rectangle
     :param x: lower left corner coordinate x
@@ -74,7 +74,7 @@ def rectangle(x, y, sidea, sideb, color='white', rotation=0):
     t.color('black')
 
 
-def rhomb(x, y, side, angle, color='white', rotation=0):
+def rhomb(x, y, side, angle, color='white', rotation = 0):
     '''
     Function, drawing rhomb
     :param x: lower left corner coordinate x
@@ -100,7 +100,7 @@ def rhomb(x, y, side, angle, color='white', rotation=0):
     t.color('black')
 
 
-def equilateral_triangle(x, y, side, color, rotation):
+def equilateral_triangle(x, y, side, color, rotation = 0):
     '''
     Function, drawing equilateral_triangle
     :param x: lower left corner coordinate x
@@ -124,7 +124,7 @@ def equilateral_triangle(x, y, side, color, rotation):
     t.setheading(0)
 
 
-def right_triangle(x, y, a, b, color, rotation=0):
+def right_triangle(x, y, a, b, color, rotation = 0):
     '''
     Function, drawing right_triangle.
     :param x: point between legs coordinate x
@@ -172,7 +172,7 @@ def circle(x, y, r, color):
     t.seth(0)
 
 
-def square(x, y, side, color, rotation=0):
+def square(x, y, side, color, rotation = 0):
     '''
     Function, drawing square.
     :param x: left top point coordinate x
@@ -196,7 +196,7 @@ def square(x, y, side, color, rotation=0):
     t.seth(0)
 
 
-def isosceles_triangle(x, y, base, height, color, rotation=0):
+def isosceles_triangle(x, y, base, height, color, rotation = 0):
     '''
     Function, drawing isosceles triangle
 
