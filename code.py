@@ -380,6 +380,8 @@ def butterfly (x, y):
 def bird(x, y):
     square(x, y, 70, 'red', 45)
     isosceles_triangle(x, y, 99, 49.5, 'orange', rotation = 270)
+    square(x + 49.5, y - 49.5, 140, 'red', 45)
+    isosceles_triangle(x + 113, y - 180, 70, 30, 'orange')
 
 def main():
     '''
