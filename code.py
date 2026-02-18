@@ -376,6 +376,41 @@ def butterfly (x, y):
     equilateral_triangle(x + 31, y - 32, 110, 'cadet blue', -70)
     circle(x + 80, y - 90, 20, 'lemon chiffon')
 
+def bird(x, y):
+    """
+    Рисует птичку, где все фигуры соединены.
+    x, y - левый нижний угол птички
+    """
+    # Тело (центрировано относительно x, y)
+    body_x = x + 100
+    body_y = y + 100
+    square(body_x, body_y, 150, 'blue')
+    
+    # Голова (примыкает к телу справа сверху)
+    head_x = body_x + 100  # Сдвиг от тела
+    head_y = body_y + 50   # Поднята выше
+    square(head_x, head_y, 80, 'blue')
+    
+    # Клюв (от головы)
+    beak_x = head_x + 60   # От головы вправо
+    beak_y = head_y + 30   # На уровне середины головы
+    isosceles_triangle(beak_x, beak_y, 50, 25, 'yellow', 20)
+    
+    # Глаз (на голове)
+    eye_x = head_x + 30    # Смещение на голове
+    eye_y = head_y + 50    # Верхняя часть головы
+    square(eye_x, eye_y, 15, 'black')
+    
+    # Крыло (на теле)
+    wing_x = body_x - 30   # Левая часть тела
+    wing_y = body_y + 40   # Средняя часть тела
+    right_triangle(wing_x, wing_y, 100, 50, 'red', 20)
+    
+    # Хвост (сзади тела)
+    tail_x = body_x - 80   # За телом
+    tail_y = body_y + 60   # На уровне середины тела
+    isosceles_triangle(tail_x, tail_y, 80, 40, 'blue', -30)
+
 def main():
     '''
     Main function.
@@ -390,6 +425,7 @@ def main():
     detailed_square(-200, 250)
     fish(0, -50)
     butterfly(400, 250)
+    bird(150, -250)
     t.update()
     t.done()
 
