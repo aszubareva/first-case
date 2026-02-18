@@ -378,10 +378,22 @@ def butterfly (x, y):
     circle(x + 80, y - 90, 20, 'lemon chiffon')
 
 def bird(x, y):
+    '''
+    Function, drawing bird.
+    :param x: coordinate x of the left corner of the head
+    :param y: coordinate y of the left corner of the head
+    :return: None
+    '''
+    #head
     square(x, y, 70, 'red', 45)
+    circle(x + 50, y - 15, 10, 'black')
     isosceles_triangle(x, y, 99, 49.5, 'orange', rotation = 270)
+    #body
     square(x + 49.5, y - 49.5, 140, 'red', 45)
     isosceles_triangle(x + 113, y - 180, 70, 30, 'orange')
+    #tail
+    isosceles_triangle(x + 198, y - 100, 100, 50, 'yellow')
+    rhomb(x + 198, y - 100, 60, 30, 'red', -30)
 
 def main():
     '''
