@@ -416,16 +416,16 @@ def swan(x, y):
     :return: None
     '''
     #head
-    right_triangle(x, y, 60, 50, 'blue', 90)
+    right_triangle(x, y, 60, 50, 'lightblue', 90)
     #neck
     rhomb(x + 42, y - 42, 60, 45, 'blue', 90)
-    square(x - 38, y - 43, 57, 'blue', 45)
+    square(x - 38, y - 43, 57, 'aqua', 45)
     isosceles_triangle(x - 78, y - 84, 80, 40, 'blue')
     #body
-    square(x - 78, y - 84, 80, 'blue')
+    square(x - 78, y - 84, 80, 'lightblue')
     right_triangle(x + 2, y - 164, 80, 80, 'blue')
     #tail
-    right_triangle(x + 82, y - 164, 113, 113, 'blue', 45)
+    right_triangle(x + 82, y - 164, 113, 113, 'aqua', 45)
 
 def main():
     '''
