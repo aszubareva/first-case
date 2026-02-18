@@ -320,25 +320,25 @@ def butterfly (x, y):
     :return: None
     '''
     # body from the head
-    circle (x,y, 20, "brown")
-    circle(x+7,y-35, 18, "brown")
-    circle(x+18,y-65, 16, "brown")
-    circle(x+27,y-91, 14, "brown")
-    circle(x+40,y-112, 12, "brown")
+    circle(x, y, 20, 'brown')
+    circle(x + 7, y - 35, 18, 'brown')
+    circle(x + 18, y - 65, 16, 'brown')
+    circle(x + 27, y - 91, 14, 'brown')
+    circle(x + 40, y - 112, 12, 'brown')
     # upper left wing
-    equilateral_triangle(x-135, y-80, 140, "cadet blue", 20)
-    circle(x-90,y-10, 18, "lemon chiffon")
-    circle(x-50,y-40, 14, "lemon chiffon")
+    equilateral_triangle(x - 135, y - 80, 140, 'cadet blue', 20)
+    circle(x - 90, y - 10, 18, 'lemon chiffon')
+    circle(x - 50, y - 40, 14, 'lemon chiffon')
     # upper right wing
-    equilateral_triangle(x+20, y-30, 140, "cadet blue", -5)
-    circle(x+95,y+10, 18, "lemon chiffon")
-    circle(x+60,y-20, 14, "lemon chiffon")
+    equilateral_triangle(x + 20, y - 30, 140, 'cadet blue', -5)
+    circle(x + 95, y + 10, 18, 'lemon chiffon')
+    circle(x + 60, y - 20, 14, 'lemon chiffon')
     # lower left wing
-    equilateral_triangle(x-90, y-105, 110, "cadet blue", -20)
-    circle(x-27,y-110, 20, "lemon chiffon")
+    equilateral_triangle(x - 90, y - 105, 110, 'cadet blue', -20)
+    circle(x - 27, y - 110, 20, 'lemon chiffon')
     # lower right wing
-    equilateral_triangle(x+31, y-32, 110, "cadet blue", -70)
-    circle(x+80,y-90, 20, "lemon chiffon")
+    equilateral_triangle(x + 31, y - 32, 110, 'cadet blue', -70)
+    circle(x + 80, y - 90, 20, 'lemon chiffon')
 
 def main():
     '''
