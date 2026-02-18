@@ -407,8 +407,6 @@ def bird(x, y):
     isosceles_triangle(x + 198, y - 100, 100, 50, 'yellow')
     rhomb(x + 198, y - 100, 60, 30, 'red', -30)
 
-<<<<<<< Updated upstream
-=======
 def swan(x, y):
     right_triangle(x, y, 60, 50, 'blue', 90)
     rhomb(x + 42, y - 42, 60, 45, 'blue', 90)
@@ -418,7 +416,6 @@ def swan(x, y):
     square(x - 78, y - 84, 80, 'blue')
     right_triangle(x + 2, y - 164, 80, 80, 'blue')
     right_triangle(x + 82, y - 164, 113, 113, 'blue', 45)
->>>>>>> Stashed changes
 
 def main():
     '''
